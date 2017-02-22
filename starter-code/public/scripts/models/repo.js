@@ -13,8 +13,10 @@
       headers: {
         Authorization: githubToken
       }
-    })
-    callback();
+    }).then(
+      function(data) {
+        repos.all = data;
+      }).then(callback);
   };
 
   // REVIEW: Model method that filters the full collection for repos with a particular attribute.
